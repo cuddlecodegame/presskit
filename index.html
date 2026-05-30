@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Kit — Reincarnated as a Dark Lord</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0a08;
+  --parchment: #f0e6d0;
+  --parchment2: #e8d8bb;
+  --blood: #8b1a1a;
+  --blood2: #c0392b;
+  --gold: #b8860b;
+  --gold2: #d4a017;
+  --shadow: #1a0e0a;
+  --muted: #6b5a48;
+  --border: #c4a882;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: 'IM Fell English', Georgia, serif;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* ── ANIMATED BACKGROUND ── */
+.bg-layer {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 100%, #2a0808 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 20% 20%, #0d0508 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, #08080d 0%, transparent 50%),
+    #0d0a08;
+}
+
+.bg-runes {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  opacity: 0.035;
+}
+.rune {
+  position: absolute;
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: clamp(40px, 8vw, 120px);
+  color: var(--blood);
+  animation: runeFloat linear infinite;
+  user-select: none;
+}
+@keyframes runeFloat {
+  0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+/* grain */
+body::after {
+  content:''; position:fixed; inset:0; z-index:999; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.07'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 60px 24px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(139,26,26,0.12) 0%, transparent 70%);
+}
+
+/* Ornamental circle behind title */
+.sigil {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(600px, 90vw); height: min(600px, 90vw);
+  border-radius: 50%;
+  border: 1px solid rgba(184,134,11,0.12);
+  box-shadow:
+    0 0 0 20px rgba(184,134,11,0.04),
+    0 0 0 60px rgba(184,134,11,0.025),
+    0 0 120px rgba(139,26,26,0.15) inset;
+  animation: sigil-rotate 60s linear infinite;
+}
+.sigil::before {
+  content:''; position:absolute; inset:20px; border-radius:50%;
+  border: 1px solid rgba(184,134,11,0.08);
+}
+.sigil::after {
+  content:''; position:absolute; inset:40px; border-radius:50%;
+  border: 1px solid rgba(139,26,26,0.1);
+}
+@keyframes sigil-rotate { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.hero-eyebrow {
+  position: relative; z-index: 2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  opacity: 0; animation: fadeIn 1s ease 0.3s forwards;
+}
+
+.hero-title {
+  position: relative; z-index: 2;
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: clamp(32px, 6vw, 80px);
+  line-height: 1.1;
+  color: var(--parchment);
+  text-shadow:
+    0 0 40px rgba(139,26,26,0.6),
+    0 0 80px rgba(139,26,26,0.3),
+    2px 3px 0 rgba(0,0,0,0.8);
+  max-width: 800px;
+  opacity: 0; animation: fadeIn 1s ease 0.6s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--blood2);
+  text-shadow: 0 0 30px rgba(192,57,43,0.8), 0 0 60px rgba(192,57,43,0.4);
+}
+
+.hero-divider {
+  position: relative; z-index: 2;
+  width: 300px; height: 24px; margin: 28px auto;
+  opacity: 0; animation: fadeIn 0.8s ease 0.9s forwards;
+}
+.hero-divider svg { width:100%; height:100%; }
+
+.hero-tagline {
+  position: relative; z-index: 2;
+  font-style: italic; font-size: clamp(14px, 2vw, 18px);
+  color: rgba(240,230,208,0.7); max-width: 520px; line-height: 1.7;
+  opacity: 0; animation: fadeIn 0.8s ease 1.1s forwards;
+}
+
+.hero-pills {
+  position: relative; z-index: 2;
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  margin-top: 32px;
+  opacity: 0; animation: fadeIn 0.8s ease 1.3s forwards;
+}
+.pill {
+  padding: 6px 16px; border: 1px solid rgba(184,134,11,0.4);
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); background: rgba(184,134,11,0.06);
+  transition: all 0.2s;
+}
+.pill:hover { background: rgba(184,134,11,0.15); border-color: var(--gold2); }
+
+.hero-buttons {
+  position: relative; z-index: 2;
+  display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; justify-content: center;
+  opacity: 0; animation: fadeIn 0.8s ease 1.5s forwards;
+}
+
+.btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  padding: 14px 32px; text-decoration: none; cursor: pointer;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+  border: none;
+}
+.btn-blood {
+  background: var(--blood); color: var(--parchment);
+  box-shadow: 0 4px 20px rgba(139,26,26,0.4);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+.btn-blood:hover {
+  background: var(--blood2); transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(192,57,43,0.5);
+}
+.btn-outline {
+  background: transparent; color: var(--gold);
+  border: 1px solid rgba(184,134,11,0.5);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+.btn-outline:hover {
+  background: rgba(184,134,11,0.1); border-color: var(--gold2);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ── SCROLL LINE ── */
+.scroll-line {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  z-index: 2;
+  animation: pulse 2s ease-in-out infinite;
+}
+.scroll-line span {
+  font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 3px;
+  color: rgba(184,134,11,0.5); text-transform: uppercase;
+}
+.scroll-line::after {
+  content: ''; display: block;
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, rgba(184,134,11,0.5), transparent);
+}
+@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+/* ── MAIN CONTENT ── */
+.content { position: relative; z-index: 1; }
+
+/* parchment sections */
+.parchment-section {
+  background: var(--parchment);
+  color: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.parchment-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 100% 30% at 50% 0%, rgba(180,140,80,0.3), transparent),
+    radial-gradient(ellipse 80% 20% at 50% 100%, rgba(160,120,60,0.2), transparent);
+  pointer-events: none;
+}
+/* Torn edge top */
+.parchment-section .tear-top {
+  position: absolute; top: -2px; left: 0; right: 0;
+  height: 20px; overflow: hidden; pointer-events: none;
+}
+.parchment-section .tear-top svg { display:block; width:100%; height:100%; }
+
+.section-inner { max-width: 960px; margin: 0 auto; padding: 80px 32px; }
+
+/* dark sections */
+.dark-section {
+  background: transparent;
+  padding: 80px 0;
+  position: relative; z-index:1;
+}
+.dark-inner { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+/* ── SECTION HEADER ── */
+.s-header {
+  display: flex; align-items: center; gap: 20px; margin-bottom: 48px;
+}
+.s-header-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+  opacity: 0.2;
+}
+.s-header-line.left { background: linear-gradient(270deg, transparent, currentColor); }
+.s-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+}
+
+/* parchment text */
+.parchment-section .s-label { color: var(--muted); }
+.parchment-section .s-header-line { background: linear-gradient(90deg, transparent, var(--muted)); }
+.parchment-section .s-header-line.left { background: linear-gradient(270deg, transparent, var(--muted)); }
+
+/* dark text */
+.dark-section .s-label { color: var(--gold); }
+
+/* ── ABOUT ── */
+.about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+@media(max-width:640px){ .about-cols{ grid-template-columns:1fr; } }
+
+.about-text {
+  font-size: 16px; line-height: 2; color: #2a1a10;
+}
+.about-text strong { color: var(--blood); font-weight: normal; font-style: italic; }
+.about-drop {
+  float:left; font-family:'UnifrakturMaguntia',serif;
+  font-size: 72px; line-height:0.8;
+  color: var(--blood); padding-right: 8px; padding-top: 8px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.stats-block {
+  border: 1px solid rgba(180,134,11,0.3);
+  background: rgba(139,26,26,0.04);
+  padding: 32px;
+}
+.stat-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 12px 0; border-bottom: 1px solid rgba(139,26,26,0.1);
+  font-size: 13px;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-key {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted);
+}
+.stat-val { font-style: italic; color: var(--blood); font-size: 14px; }
+
+/* ── FEATURES ── */
+.features-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px; background: rgba(184,134,11,0.1);
+  border: 1px solid rgba(184,134,11,0.1);
+}
+.feature-card {
+  background: rgba(13,10,8,0.95);
+  padding: 32px 28px;
+  transition: background 0.25s;
+  position: relative; overflow: hidden;
+}
+.feature-card::before {
+  content:''; position:absolute; top:0; left:0;
+  width:3px; height:0;
+  background: linear-gradient(to bottom, var(--blood), var(--blood2));
+  transition: height 0.3s ease;
+}
+.feature-card:hover::before { height: 100%; }
+.feature-card:hover { background: rgba(30,10,10,0.98); }
+
+.feature-glyph {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 36px; color: var(--gold);
+  opacity: 0.7; line-height: 1;
+  margin-bottom: 16px; display: block;
+}
+.feature-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.feature-desc {
+  font-size: 14px; color: rgba(240,230,208,0.65);
+  line-height: 1.7;
+}
+
+/* ── SCREENSHOTS ── */
+.ss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+@media(max-width:600px){ .ss-grid{ grid-template-columns: repeat(2,1fr); } }
+
+.ss-item {
+  aspect-ratio: 16/9;
+  background: #130d0a;
+  border: 1px solid rgba(184,134,11,0.08);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; cursor: pointer;
+  transition: border-color 0.2s;
+}
+.ss-item:hover { border-color: rgba(139,26,26,0.5); }
+.ss-item::after {
+  content: attr(data-n);
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 48px; color: rgba(184,134,11,0.06);
+  position: absolute;
+}
+.ss-item:hover::before {
+  content: '↗';
+  position: absolute; top: 10px; right: 12px;
+  font-family: 'Raleway', sans-serif; font-size: 14px;
+  color: rgba(184,134,11,0.6); z-index: 1;
+}
+/* atmospheric gradient per cell */
+.ss-item:nth-child(1)::before { background: radial-gradient(circle at 30% 40%, #3a080822, transparent 60%); }
+
+.ss-caption {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(184,134,11,0.4); text-align: center;
+  margin-top: 12px;
+}
+
+/* ── TRAILER ── */
+.trailer-wrap {
+  max-width: 680px; margin: 0 auto;
+  aspect-ratio: 16/9;
+  background: #0d0805;
+  border: 1px solid rgba(184,134,11,0.12);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 20px; cursor: pointer; position: relative; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.trailer-wrap:hover { border-color: rgba(139,26,26,0.4); }
+.trailer-wrap::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at center, rgba(139,26,26,0.1), transparent 60%);
+  transition: opacity 0.3s; opacity: 0;
+}
+.trailer-wrap:hover::before { opacity: 1; }
+
+.play-ring {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 1.5px solid rgba(139,26,26,0.5);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; transition: all 0.3s;
+}
+.play-ring::before {
+  content:''; position:absolute; inset:-8px; border-radius:50%;
+  border: 1px solid rgba(139,26,26,0.2);
+  animation: ring-pulse 2s ease-in-out infinite;
+}
+@keyframes ring-pulse {
+  0%,100%{ transform:scale(1); opacity:0.6; }
+  50%{ transform:scale(1.08); opacity:1; }
+}
+.play-ring svg { fill: var(--blood2); margin-left: 4px; }
+.trailer-wrap:hover .play-ring {
+  border-color: var(--blood2);
+  box-shadow: 0 0 30px rgba(192,57,43,0.3);
+}
+.trailer-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(184,134,11,0.5);
+}
+
+/* ── FACT TABLE (parchment) ── */
+.fact-table { width:100%; border-collapse:collapse; }
+.fact-table tr { border-bottom: 1px solid rgba(139,26,26,0.12); }
+.fact-table tr:last-child { border-bottom: none; }
+.fact-table td { padding: 14px 0; vertical-align: top; font-size: 14px; }
+.fact-table td:first-child {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); width: 140px; padding-right: 24px; padding-top: 17px;
+}
+.fact-table td:last-child { color: #2a1a10; line-height: 1.8; }
+
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin-top: 4px; }
+.tag {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 4px 10px; border: 1px solid rgba(139,26,26,0.25);
+  color: var(--muted); background: rgba(139,26,26,0.04);
+}
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(184,134,11,0.1); }
+@media(max-width:600px){ .contact-grid{ grid-template-columns:1fr; } }
+
+.contact-cell {
+  background: rgba(13,10,8,0.97);
+  padding: 40px 32px;
+}
+.contact-cell .c-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; display: block;
+}
+.contact-cell .c-val {
+  font-size: 18px; color: var(--parchment);
+  text-decoration: none; transition: color 0.2s;
+  display: block; margin-bottom: 4px;
+}
+.contact-cell .c-val:hover { color: var(--blood2); }
+.contact-cell .c-note {
+  font-size: 12px; color: rgba(240,230,208,0.4);
+  font-style: italic;
+}
+
+.social-links { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.social-link {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  padding: 8px 16px; border: 1px solid rgba(184,134,11,0.3);
+  transition: all 0.2s;
+}
+.social-link:hover { background: rgba(184,134,11,0.1); border-color: var(--gold2); }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1;
+  text-align: center; padding: 48px 24px 32px;
+  border-top: 1px solid rgba(184,134,11,0.08);
+}
+.footer-glyph {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 48px; color: rgba(184,134,11,0.15);
+  display: block; margin-bottom: 16px;
+}
+footer p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(240,230,208,0.2);
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.shown { opacity:1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── DIVIDER ornament ── */
+.ornament {
+  text-align: center; padding: 24px 0;
+  position: relative; z-index: 1;
+}
+.ornament-inner {
+  display: inline-flex; align-items: center; gap: 16px;
+}
+.ornament-inner::before, .ornament-inner::after {
+  content:''; display:block; width:80px; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(184,134,11,0.3));
+}
+.ornament-inner::before { background: linear-gradient(270deg, transparent, rgba(184,134,11,0.3)); }
+.ornament-glyph {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 20px; color: rgba(184,134,11,0.35);
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(13,10,8,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,134,11,0.08);
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+.nav.visible { transform: none; }
+.nav-logo {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 22px; color: var(--parchment);
+  text-shadow: 0 0 20px rgba(139,26,26,0.5);
+}
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(240,230,208,0.5); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-layer"></div>
+<div class="bg-runes" id="bgRunes"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <span class="nav-logo">Dark Lord</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#media">Media</a>
+    <a href="#factsheet">Fact Sheet</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="sigil"></div>
+
+  <p class="hero-eyebrow">Press Kit &nbsp;·&nbsp; Steam Release June 1, 2026</p>
+
+  <h1 class="hero-title">
+    Reincarnated as a<br>
+    <em>Dark Lord</em><br>
+    Before Taking Over<br>the World
+  </h1>
+
+  <div class="hero-divider">
+    <svg viewBox="0 0 300 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="12" x2="120" y2="12" stroke="#b8860b" stroke-opacity="0.4"/>
+      <polygon points="140,4 150,12 140,20 130,12" stroke="#b8860b" stroke-opacity="0.6" fill="none"/>
+      <circle cx="150" cy="12" r="3" fill="#8b1a1a" fill-opacity="0.8"/>
+      <polygon points="160,4 150,12 160,20 170,12" stroke="#b8860b" stroke-opacity="0.6" fill="none"/>
+      <line x1="180" y1="12" x2="300" y2="12" stroke="#b8860b" stroke-opacity="0.4"/>
+    </svg>
+  </div>
+
+  <p class="hero-tagline">
+    An incremental RPG where death is not the end.<br>
+    Reincarnate. Choose. Grow stronger. Conquer everything.
+  </p>
+
+  <div class="hero-pills">
+    <span class="pill">Incremental RPG</span>
+    <span class="pill">Challenging</span>
+    <span class="pill">Multiple Endings</span>
+    <span class="pill">Run-based Progression</span>
+    <span class="pill">Steam · June 1, 2026</span>
+  </div>
+
+  <div class="hero-buttons">
+    <a href="#" class="btn btn-blood">⬇ Download Press Kit</a>
+    <a href="https://store.steampowered.com/app/4204590/Reincarnated_as_a_Dark_Lord_Before_Taking_Over_the_World_with_Power_999999999/" class="btn btn-outline">🎮 Steam Page</a>
+    <a href="#" class="btn btn-outline">📺 Trailer</a>
+  </div>
+
+  <div class="scroll-line"><span>Descend</span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="parchment-section" id="about">
+  <div class="section-inner">
+    <div class="s-header">
+      <div class="s-header-line left"></div>
+      <span class="s-label">About the Game</span>
+      <div class="s-header-line"></div>
+    </div>
+    <div class="about-cols reveal">
+      <div>
+        <p class="about-text">
+          <span class="about-drop">Y</span>ou have been cast into another world as a <strong>Dark Lord</strong> — feared, hunted, and mortal. But you carry one gift no enemy can take: the power to <strong>be reborn</strong>.
+        </p>
+        <br>
+        <p class="about-text">
+          Each life is a branching path. Every death teaches. Choose how you grow — through <strong>dark magic</strong>, loyal minions, or monstrous evolution. The world will not yield easily. Resources are scarce, time runs short, and each route demands real strategy.
+        </p>
+        <br>
+        <p class="about-text">
+          This is not a game of patience. It is a game of <strong>mastery</strong>.
+        </p>
+      </div>
+      <div class="stats-block reveal reveal-delay-2">
+        <div class="stat-row">
+          <span class="stat-key">Developer</span>
+          <span class="stat-val">Cuddle Code</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Release</span>
+          <span class="stat-val">June 1, 2026</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Platform</span>
+          <span class="stat-val">Steam · Windows</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Genre</span>
+          <span class="stat-val">Incremental RPG</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Play Time</span>
+          <span class="stat-val">5–10 Hours</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Difficulty</span>
+          <span class="stat-val">Challenging</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-key">Price</span>
+          <span class="stat-val">฿XX · $X.XX</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-inner"><span class="ornament-glyph">☽ ✦ ☾</span></div></div>
+
+<!-- FEATURES -->
+<section class="dark-section" id="features">
+  <div class="dark-inner">
+    <div class="s-header reveal">
+      <div class="s-header-line left" style="background:linear-gradient(270deg,transparent,rgba(184,134,11,0.2))"></div>
+      <span class="s-label">Key Features</span>
+      <div class="s-header-line" style="background:linear-gradient(90deg,transparent,rgba(184,134,11,0.2))"></div>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <span class="feature-glyph">ℜ</span>
+        <p class="feature-title">Reincarnation Loop</p>
+        <p class="feature-desc">Die, remember, return. Each rebirth carries forward the wisdom of your past life — opening new paths that were impossible before.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-glyph">𝔅</span>
+        <p class="feature-title">Branching Path Tree</p>
+        <p class="feature-desc">Every decision forks the road. All choices are visualized as a branching tree — plan your run, or discover by experimentation.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-glyph">𝔎</span>
+        <p class="feature-title">Genuine Challenge</p>
+        <p class="feature-desc">Tight time limits, scarce resources, and layered strategy. Multiple endings require real planning — this is not idle by nature.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-glyph">𝔐</span>
+        <p class="feature-title">Multiple Endings</p>
+        <p class="feature-desc">Several distinct endings and hidden secrets are woven through every chapter. Finding them all demands mastery of every path.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-glyph">𝔓</span>
+        <p class="feature-title">Prestige System</p>
+        <p class="feature-desc">Convert passive XP into "Chapter Memories" — permanent boosts that carry across chapters and accelerate future runs.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-glyph">𝔇</span>
+        <p class="feature-title">Three Dark Paths</p>
+        <p class="feature-desc">Master dark magic, build an army of minions, or evolve into a terrifying creature. Each path opens unique strategies and endings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-inner"><span class="ornament-glyph">⸸ ✦ ⸸</span></div></div>
+
+<!-- MEDIA -->
+<section class="dark-section" id="media">
+  <div class="dark-inner">
+    <div class="s-header reveal">
+      <div class="s-header-line left" style="background:linear-gradient(270deg,transparent,rgba(184,134,11,0.2))"></div>
+      <span class="s-label">Screenshots</span>
+      <div class="s-header-line" style="background:linear-gradient(90deg,transparent,rgba(184,134,11,0.2))"></div>
+    </div>
+
+    <div class="ss-grid reveal">
+      <img src="screenshot1.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
+      <img src="screenshot2.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
+      <img src="screenshot3.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
+      <img src="screenshot4.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
+      <img src="screenshot5.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
+      <img src="screenshot6.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
+    </div>
+    <p class="ss-caption">Replace placeholders with actual game screenshots</p>
+
+    <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="#" class="btn btn-outline" style="font-size:9px; padding:10px 20px;">⬇ Download All Screenshots (HD)</a>
+      <a href="#" class="btn btn-outline" style="font-size:9px; padding:10px 20px;">⬇ Download Logos & Assets</a>
+    </div>
+
+    <div style="margin-top:56px;">
+      <div class="s-header reveal">
+        <div class="s-header-line left" style="background:linear-gradient(270deg,transparent,rgba(184,134,11,0.2))"></div>
+        <span class="s-label">Trailer</span>
+        <div class="s-header-line" style="background:linear-gradient(90deg,transparent,rgba(184,134,11,0.2))"></div>
+      </div>
+      <div style="max-width:680px;margin:0 auto;aspect-ratio:16/9;">
+        <iframe width="100%" height="100%"
+          src="https://www.youtube.com/embed/OJlY10mJpo8"
+            frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACT SHEET (parchment) -->
+<section class="parchment-section" id="factsheet">
+  <div class="section-inner">
+    <div class="s-header reveal">
+      <div class="s-header-line left"></div>
+      <span class="s-label">Fact Sheet</span>
+      <div class="s-header-line"></div>
+    </div>
+    <table class="fact-table reveal">
+      <tr><td>Title</td><td>Reincarnated as a Dark Lord Before Taking Over the World with Power 999999999</td></tr>
+      <tr><td>Developer</td><td>Cuddle Code (Solo Dev)</td></tr>
+      <tr><td>Release Date</td><td>June 1, 2026</td></tr>
+      <tr><td>Platform</td><td>Steam · Windows<br><span style="font-size:12px;color:var(--muted);font-style:italic">Also available on itch.io</span></td></tr>
+      <tr><td>Price</td><td>฿XX / $X.XX USD</td></tr>
+      <tr><td>Genre</td><td>Incremental RPG · Run-based Progression · Strategy</td></tr>
+      <tr><td>Play Time</td><td>5–10 hours (full game, multiple chapters)</td></tr>
+      <tr><td>Language</td><td>English</td></tr>
+      <tr><td>Demo</td><td>Available now on Steam (Chapter 1 + Chapter 2)</td></tr>
+      <tr><td>Tags</td>
+        <td>
+          <div class="tags">
+            <span class="tag">Incremental</span>
+            <span class="tag">RPG</span>
+            <span class="tag">Challenging</span>
+            <span class="tag">Multiple Endings</span>
+            <span class="tag">Choices Matter</span>
+            <span class="tag">Prestige</span>
+            <span class="tag">Time Management</span>
+            <span class="tag">Reincarnation</span>
+            <span class="tag">Dark Fantasy</span>
+            <span class="tag">Strategy</span>
+          </div>
+        </td>
+      </tr>
+      <tr><td>Press Contact</td><td>napas.games@gmail.com</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="dark-section" id="contact">
+  <div class="dark-inner">
+    <div class="s-header reveal">
+      <div class="s-header-line left" style="background:linear-gradient(270deg,transparent,rgba(184,134,11,0.2))"></div>
+      <span class="s-label">Contact &amp; Links</span>
+      <div class="s-header-line" style="background:linear-gradient(90deg,transparent,rgba(184,134,11,0.2))"></div>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-cell">
+        <span class="c-label">Press &amp; Business Inquiries</span>
+        <a href="mailto:hello@cuddlecode.dev" class="c-val">hello@cuddlecode.dev</a>
+        <p class="c-note">Steam keys available upon request</p>
+        <div class="social-links">
+          <a href="https://x.com/napasgames" class="social-link">𝕏 Twitter</a>
+          <a href="#" class="social-link">Discord</a>
+          <a href="#" class="social-link">Bluesky</a>
+        </div>
+      </div>
+      <div class="contact-cell">
+        <span class="c-label">Store Pages</span>
+        <a href="https://store.steampowered.com/app/4204590/Reincarnated_as_a_Dark_Lord_Before_Taking_Over_the_World_with_Power_999999999/" class="c-val">Steam Page →</a>
+        <a href="https://jetamp.itch.io/reincarnated-as-a-dark-lord-before-taking-over-the-world-with-power-999999999" class="c-val" style="font-size:15px; color:rgba(240,230,208,0.6);">itch.io Page →</a>
+        <p class="c-note" style="margin-top:16px;">All assets on this page are free to use for press coverage of this title.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-glyph">𝔇</span>
+  <p>© 2026 Cuddle Code &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Assets Free for Press Use</p>
+</footer>
+
+<script>
+// Floating runes background
+const runes = ['𝔄','𝔅','ℭ','𝔇','𝔈','𝔉','𝔊','ℌ','𝔐','𝔑','𝔒','𝔓','𝔔','ℜ','𝔖','𝔗'];
+const container = document.getElementById('bgRunes');
+function spawnRune() {
+  const el = document.createElement('div');
+  el.className = 'rune';
+  el.textContent = runes[Math.floor(Math.random() * runes.length)];
+  el.style.left = Math.random() * 100 + 'vw';
+  el.style.fontSize = (40 + Math.random() * 80) + 'px';
+  const dur = 20 + Math.random() * 30;
+  el.style.animationDuration = dur + 's';
+  el.style.animationDelay = (Math.random() * -dur) + 's';
+  container.appendChild(el);
+  setTimeout(() => el.remove(), (dur + 5) * 1000);
+}
+for (let i = 0; i < 12; i++) spawnRune();
+setInterval(spawnRune, 4000);
+
+// Nav show after scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('visible', window.scrollY > 80);
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('shown'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
