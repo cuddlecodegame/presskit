@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Press Kit — Reincarnated as a Dark Lord</title>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&family=EB Garamond:ital@0;1&family=Crimson Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink: #0d0a08;
@@ -28,7 +28,7 @@ body {
   color: var(--parchment);
   font-family: 'IM Fell English', Georgia, serif;
   overflow-x: hidden;
-  cursor: crosshair;
+  cursor: default;
 }
 
 /* ── ANIMATED BACKGROUND ── */
@@ -47,7 +47,7 @@ body {
 }
 .rune {
   position: absolute;
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: clamp(40px, 8vw, 120px);
   color: var(--blood);
   animation: runeFloat linear infinite;
@@ -107,15 +107,15 @@ body::after {
 
 .hero-eyebrow {
   position: relative; z-index: 2;
-  font-family: 'Raleway', sans-serif;
-  font-size: 10px; letter-spacing: 6px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 16px; letter-spacing: 6px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 28px;
   opacity: 0; animation: fadeIn 1s ease 0.3s forwards;
 }
 
 .hero-title {
   position: relative; z-index: 2;
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: clamp(32px, 6vw, 80px);
   line-height: 1.1;
   color: var(--parchment);
@@ -142,7 +142,7 @@ body::after {
 
 .hero-tagline {
   position: relative; z-index: 2;
-  font-style: italic; font-size: clamp(14px, 2vw, 18px);
+  font-style: italic; font-size: clamp(24px, 2vw, 18px);
   color: rgba(240,230,208,0.7); max-width: 520px; line-height: 1.7;
   opacity: 0; animation: fadeIn 0.8s ease 1.1s forwards;
 }
@@ -155,8 +155,8 @@ body::after {
 }
 .pill {
   padding: 6px 16px; border: 1px solid rgba(184,134,11,0.4);
-  font-family: 'Raleway', sans-serif;
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold); background: rgba(184,134,11,0.06);
   transition: all 0.2s;
 }
@@ -169,8 +169,8 @@ body::after {
 }
 
 .btn {
-  font-family: 'Raleway', sans-serif;
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 16px; letter-spacing: 3px; text-transform: uppercase;
   padding: 14px 32px; text-decoration: none; cursor: pointer;
   transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
   border: none;
@@ -188,6 +188,7 @@ body::after {
   background: transparent; color: var(--gold);
   border: 1px solid rgba(184,134,11,0.5);
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    font-size: 16px;
 }
 .btn-outline:hover {
   background: rgba(184,134,11,0.1); border-color: var(--gold2);
@@ -207,7 +208,7 @@ body::after {
   animation: pulse 2s ease-in-out infinite;
 }
 .scroll-line span {
-  font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 3px;
+  font-family: 'Crimson Pro', sans-serif; font-size: 9px; letter-spacing: 3px;
   color: rgba(184,134,11,0.5); text-transform: uppercase;
 }
 .scroll-line::after {
@@ -263,8 +264,8 @@ body::after {
 }
 .s-header-line.left { background: linear-gradient(270deg, transparent, currentColor); }
 .s-label {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 20px; letter-spacing: 5px; text-transform: uppercase;
 }
 
 /* parchment text */
@@ -280,11 +281,11 @@ body::after {
 @media(max-width:640px){ .about-cols{ grid-template-columns:1fr; } }
 
 .about-text {
-  font-size: 16px; line-height: 2; color: #2a1a10;
+  font-size: 18px; line-height: 2; color: #2a1a10;
 }
-.about-text strong { color: var(--blood); font-weight: normal; font-style: italic; }
+.about-text strong { color: var(--blood); font-weight: normal; font-style: italic; font-size: 1.2em; }
 .about-drop {
-  float:left; font-family:'UnifrakturMaguntia',serif;
+  float:left; font-family:'Texturina',serif;
   font-size: 72px; line-height:0.8;
   color: var(--blood); padding-right: 8px; padding-top: 8px;
   text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
@@ -302,10 +303,10 @@ body::after {
 }
 .stat-row:last-child { border-bottom: none; }
 .stat-key {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted);
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted);
 }
-.stat-val { font-style: italic; color: var(--blood); font-size: 14px; }
+.stat-val { font-style: italic; color: var(--blood); font-size: 20px; }
 
 /* ── FEATURES ── */
 .features-grid {
@@ -329,18 +330,18 @@ body::after {
 .feature-card:hover { background: rgba(30,10,10,0.98); }
 
 .feature-glyph {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: 36px; color: var(--gold);
   opacity: 0.7; line-height: 1;
   margin-bottom: 16px; display: block;
 }
 .feature-title {
-  font-family: 'Raleway', sans-serif;
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 16px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 10px;
 }
 .feature-desc {
-  font-size: 14px; color: rgba(240,230,208,0.65);
+  font-size: 18px; color: rgba(240,230,208,0.65);
   line-height: 1.7;
 }
 
@@ -363,21 +364,21 @@ body::after {
 .ss-item:hover { border-color: rgba(139,26,26,0.5); }
 .ss-item::after {
   content: attr(data-n);
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: 48px; color: rgba(184,134,11,0.06);
   position: absolute;
 }
 .ss-item:hover::before {
   content: '↗';
   position: absolute; top: 10px; right: 12px;
-  font-family: 'Raleway', sans-serif; font-size: 14px;
+  font-family: 'Crimson Pro', sans-serif; font-size: 14px;
   color: rgba(184,134,11,0.6); z-index: 1;
 }
 /* atmospheric gradient per cell */
 .ss-item:nth-child(1)::before { background: radial-gradient(circle at 30% 40%, #3a080822, transparent 60%); }
 
 .ss-caption {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Crimson Pro', sans-serif;
   font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
   color: rgba(184,134,11,0.4); text-align: center;
   margin-top: 12px;
@@ -422,7 +423,7 @@ body::after {
   box-shadow: 0 0 30px rgba(192,57,43,0.3);
 }
 .trailer-label {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Crimson Pro', sans-serif;
   font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
   color: rgba(184,134,11,0.5);
 }
@@ -431,18 +432,18 @@ body::after {
 .fact-table { width:100%; border-collapse:collapse; }
 .fact-table tr { border-bottom: 1px solid rgba(139,26,26,0.12); }
 .fact-table tr:last-child { border-bottom: none; }
-.fact-table td { padding: 14px 0; vertical-align: top; font-size: 14px; }
+.fact-table td { padding: 14px 0; vertical-align: top; font-size: 18px; }
 .fact-table td:first-child {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 16px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--muted); width: 140px; padding-right: 24px; padding-top: 17px;
 }
 .fact-table td:last-child { color: #2a1a10; line-height: 1.8; }
 
 .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top: 4px; }
 .tag {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
   padding: 4px 10px; border: 1px solid rgba(139,26,26,0.25);
   color: var(--muted); background: rgba(139,26,26,0.04);
 }
@@ -456,8 +457,8 @@ body::after {
   padding: 40px 32px;
 }
 .contact-cell .c-label {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 14px; letter-spacing: 4px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 12px; display: block;
 }
 .contact-cell .c-val {
@@ -467,14 +468,14 @@ body::after {
 }
 .contact-cell .c-val:hover { color: var(--blood2); }
 .contact-cell .c-note {
-  font-size: 12px; color: rgba(240,230,208,0.4);
+  font-size: 16px; color: rgba(240,230,208,0.4);
   font-style: italic;
 }
 
 .social-links { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
 .social-link {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--gold); text-decoration: none;
   padding: 8px 16px; border: 1px solid rgba(184,134,11,0.3);
   transition: all 0.2s;
@@ -488,12 +489,12 @@ footer {
   border-top: 1px solid rgba(184,134,11,0.08);
 }
 .footer-glyph {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: 48px; color: rgba(184,134,11,0.15);
   display: block; margin-bottom: 16px;
 }
 footer p {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Crimson Pro', sans-serif;
   font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
   color: rgba(240,230,208,0.2);
 }
@@ -522,7 +523,7 @@ footer p {
 }
 .ornament-inner::before { background: linear-gradient(270deg, transparent, rgba(184,134,11,0.3)); }
 .ornament-glyph {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: 20px; color: rgba(184,134,11,0.35);
 }
 
@@ -539,14 +540,14 @@ footer p {
 }
 .nav.visible { transform: none; }
 .nav-logo {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'Texturina', serif;
   font-size: 22px; color: var(--parchment);
   text-shadow: 0 0 20px rgba(139,26,26,0.5);
 }
 .nav-links { display: flex; gap: 24px; }
 .nav-links a {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Crimson Pro', sans-serif;
+  font-size: 16px; letter-spacing: 3px; text-transform: uppercase;
   color: rgba(240,230,208,0.5); text-decoration: none; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--gold); }
@@ -576,11 +577,15 @@ footer p {
 
   <p class="hero-eyebrow">Press Kit &nbsp;·&nbsp; Steam Release June 1, 2026</p>
 
-  <h1 class="hero-title">
-    Reincarnated as a<br>
-    <em>Dark Lord</em><br>
-    Before Taking Over<br>the World
-  </h1>
+  <img src="cover.png" style="
+    max-width: 800px;
+    width: 100%;
+    mix-blend-mode: lighten;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.6s forwards;
+    position: relative;
+    z-index: 2;
+  ">
 
   <div class="hero-divider">
     <svg viewBox="0 0 300 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -606,12 +611,12 @@ footer p {
   </div>
 
   <div class="hero-buttons">
-    <a href="#" class="btn btn-blood">⬇ Download Press Kit</a>
+    <a href="https://drive.google.com/drive/folders/1lRtBvc5xpkc2YCUVHy8DER78ysocH5Ag?usp=drive_link" class="btn btn-blood">⬇ Download Press Kit</a>
     <a href="https://store.steampowered.com/app/4204590/Reincarnated_as_a_Dark_Lord_Before_Taking_Over_the_World_with_Power_999999999/" class="btn btn-outline">🎮 Steam Page</a>
-    <a href="#" class="btn btn-outline">📺 Trailer</a>
+    <a href="#media" class="btn btn-outline">📺 Trailer</a>
   </div>
 
-  <div class="scroll-line"><span>Descend</span></div>
+  
 </section>
 
 <!-- ABOUT -->
@@ -734,11 +739,10 @@ footer p {
       <img src="screenshot5.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
       <img src="screenshot6.png" class="ss-item" style="object-fit:cover;width:100%;height:100%;">
     </div>
-    <p class="ss-caption">Replace placeholders with actual game screenshots</p>
-
+    
     <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
-      <a href="#" class="btn btn-outline" style="font-size:9px; padding:10px 20px;">⬇ Download All Screenshots (HD)</a>
-      <a href="#" class="btn btn-outline" style="font-size:9px; padding:10px 20px;">⬇ Download Logos & Assets</a>
+      <a href="https://drive.google.com/drive/folders/18LdNonmUuB9X2XOT0LeuOO2NpOicasDM?usp=drive_link" class="btn btn-outline" style="font-size:14px; padding:10px 20px;">⬇ Download All Screenshots (HD)</a>
+      <a href="https://drive.google.com/drive/folders/1rBDgGUVwJlbpBCQzBeiHP9AieLaWC5R1?usp=drive_link" class="btn btn-outline" style="font-size:14px; padding:10px 20px;">⬇ Download Logos & Assets</a>
     </div>
 
     <div style="margin-top:56px;">
@@ -769,8 +773,8 @@ footer p {
       <tr><td>Title</td><td>Reincarnated as a Dark Lord Before Taking Over the World with Power 999999999</td></tr>
       <tr><td>Developer</td><td>Cuddle Code (Solo Dev)</td></tr>
       <tr><td>Release Date</td><td>June 1, 2026</td></tr>
-      <tr><td>Platform</td><td>Steam · Windows<br><span style="font-size:12px;color:var(--muted);font-style:italic">Also available on itch.io</span></td></tr>
-      <tr><td>Price</td><td>฿XX / $X.XX USD</td></tr>
+      <tr><td>Platform</td><td>Steam · Windows<br><span style="font-size:16px;color:var(--muted);font-style:italic">Also available on itch.io</span></td></tr>
+      <tr><td>Price</td><td>฿115 / $5 USD</td></tr>
       <tr><td>Genre</td><td>Incremental RPG · Run-based Progression · Strategy</td></tr>
       <tr><td>Play Time</td><td>5–10 hours (full game, multiple chapters)</td></tr>
       <tr><td>Language</td><td>English</td></tr>
@@ -807,12 +811,12 @@ footer p {
     <div class="contact-grid reveal">
       <div class="contact-cell">
         <span class="c-label">Press &amp; Business Inquiries</span>
-        <a href="mailto:hello@cuddlecode.dev" class="c-val">hello@cuddlecode.dev</a>
+        <a href="mailto:napas.games@gmail.com" class="c-val">napas.games@gmail.com</a>
         <p class="c-note">Steam keys available upon request</p>
         <div class="social-links">
           <a href="https://x.com/napasgames" class="social-link">𝕏 Twitter</a>
-          <a href="#" class="social-link">Discord</a>
-          <a href="#" class="social-link">Bluesky</a>
+          <a href="https://discord.gg/P8g8bqqw5F" class="social-link">Discord</a>
+          <a href="https://bsky.app/profile/napasgames.bsky.social" class="social-link">Bluesky</a>
         </div>
       </div>
       <div class="contact-cell">
